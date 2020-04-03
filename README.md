@@ -1,4 +1,5 @@
 ###Project Setup
+
 ####1. Download and install protoc compiler:
 https://github.com/google/protobuf
 
@@ -16,13 +17,16 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 ***
 
 ###Running the Application
+
 ####1. Run this protoc compiler command from the root directory:
 >`protoc -I customer/ customer/customer.proto --go_out=plugins=grpc:customer`
+
 #####This generates `customer/customer.pb.go`, a Protobuf file with source code that allows us to:
 - Create the gRPC server
 - Make client RPC calls
 
 ####2. Running gRPC Applications:
+
 #####a. gRPC Server Application:
 >`go run main.go` from `/server` directory
 
@@ -50,9 +54,13 @@ This means that your gRPC server initialized, and received the correct RPC metho
  ***
  
  ###References
+ 
  #####gRPC
  https://www.grpc.io/
+ 
  #####Protocol Buffers (Protobuf) Language Guide:
  https://developers.google.com/protocol-buffers/docs/proto3
+ 
  #####This project specifically:
  https://medium.com/@shijuvar/building-high-performance-apis-in-go-using-grpc-and-protocol-buffers-2eda5b80771b
+ 
