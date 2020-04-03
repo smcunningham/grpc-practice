@@ -23,20 +23,19 @@ run from the client directory:
 `go run main.go`
 
 You should see similar output:
-`2016/10/11 16:02:47 A new Customer has been added with id: 101
+`2016/10/11 16:02:47 A new Customer has been added with id: 101`
 
- 2016/10/11 16:02:47 A new Customer has been added with id: 102
+`2016/10/11 16:02:47 A new Customer has been added with id: 102`
  
- 2016/10/11 16:02:47 Customer: id:101 name:”Shiju Varghese” email:”shiju@xyz.com” 
+`2016/10/11 16:02:47 Customer: id:101 name:”Shiju Varghese” email:”shiju@xyz.com” 
    phone:”732–757–2923" addresses:<street:”1 Mission Street” city:”San Francisco” 
    state:”CA” zip:”94105" > addresses:<street:”Greenfield” city:”Kochi” state:”KL” 
-   zip:”68356" isShippingAddress:true >
+   zip:”68356" isShippingAddress:true >`
    
- 2016/10/11 16:02:47 Customer: id:102 name:”Irene Rose” email:”irene@xyz.com” 
+`2016/10/11 16:02:47 Customer: id:102 name:”Irene Rose” email:”irene@xyz.com” 
    phone:”732–757–2924" addresses:<street:”1 Mission Street” city:”San Francisco” 
-   state:”CA” zip:”94105" isShippingAddress:true >
+   state:”CA” zip:”94105" isShippingAddress:true >`
    
-   `
    
  This means that your gRPC server was correctly started, and it received the
  correct RPC methods from the client application, which resulted in creating
