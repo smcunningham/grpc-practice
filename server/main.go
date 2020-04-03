@@ -1,4 +1,3 @@
-
 package main
 
 import (
@@ -9,7 +8,7 @@ import (
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 
-	pb "grpc-tutorial/customer"
+	pb "grpc-practice/customer"
 )
 
 const (
