@@ -32,6 +32,7 @@ message CustomerResponse {
     int32 id = 1;
     bool success = 2;
 }
+
 message CustomerFilter {
     string keyword = 1;
 }

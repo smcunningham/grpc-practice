@@ -43,6 +43,7 @@ func getCustomers(client pb.CustomerClient, filter *pb.CustomerFilter) {
 		log.Printf("Customer: %v", customer)
 	}
 }
+
 func main() {
 	// Set up a connection to the gRPC server.
 	conn, err := grpc.Dial(address, grpc.WithInsecure())
@@ -50,6 +51,7 @@ func main() {
 		log.Fatalf("did not connect: %v", err)
 	}
 	defer conn.Close()
+
 	// Creates a new CustomerClient
 	client := pb.NewCustomerClient(conn)
 
