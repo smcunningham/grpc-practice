@@ -23,6 +23,7 @@ run from the client directory:
 `go run main.go`
 
 You should see similar output:
+
 `2016/10/11 16:02:47 A new Customer has been added with id: 101`
 
 `2016/10/11 16:02:47 A new Customer has been added with id: 102`
