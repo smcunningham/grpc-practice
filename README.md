@@ -12,14 +12,14 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 ```
 
 #### 3. Install Golang implementation of gRPC:
->`go get google.golang.org/grpc`
+`go get google.golang.org/grpc`
 
 ***
 
 ### Running the Application
 
 #### 1. Run this protoc compiler command from the root directory:
->`protoc -I customer/ customer/customer.proto --go_out=plugins=grpc:customer`
+`protoc -I customer/ customer/customer.proto --go_out=plugins=grpc:customer`
 
 ##### This generates `customer/customer.pb.go`, a Protobuf file with source code that allows us to:
 - Create the gRPC server
@@ -28,10 +28,10 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 #### 2. Running gRPC Applications:
 
 ##### a. gRPC Server Application:
->`go run main.go` from `/server` directory
+`go run main.go` from `/server` directory
 
 ##### b. gRPC Client Application:
->`go run main.go` from `/client` directory
+`go run main.go` from `/client` directory
 
 You should see output similar to this:
 
