@@ -1,46 +1,58 @@
-Download and install protoc compiler:
+###Project Setup
+####1. Download and install protoc compiler:
 https://github.com/google/protobuf
 
-Install protoc plugin for Golang:
-`go get -u github.com/golang/protobuf/proto`
-`go get -u github.com/golang/protobuf/protoc-gen-go`
+*Make sure the compiler is in your path!*
 
-Install Golang implementation of gRPC:
-`go get google.golang.org/grpc`
+####2. Install protoc plugin for Golang:
+```
+go get -u github.com/golang/protobuf/proto
+go get -u github.com/golang/protobuf/protoc-gen-go
+```
 
-Protocol Buffers Language Guide:
-https://developers.google.com/protocol-buffers/docs/proto3
+####3. Install Golang implementation of gRPC:
+>`go get google.golang.org/grpc`
 
-Run this protoc compiler command from the root directory to generate source code
-essential to creating the server and to make client calls through RPC:
-`protoc -I customer/ customer/customer.proto --go_out=plugins=grpc:customer`
+***
 
-Run gRPC server with this command from server directory:
-`go run main.go`
+###Running the Application
+####1. Run this protoc compiler command from the root directory:
+>`protoc -I customer/ customer/customer.proto --go_out=plugins=grpc:customer`
+#####This generates `customer/customer.pb.go`, a Protobuf file with source code that allows us to:
+- Create the gRPC server
+- Make client RPC calls
 
-To test the RPC methods by calling from the client application,
-run from the client directory:
-`go run main.go`
+####2. Running gRPC Applications:
+#####a. gRPC Server Application:
+>`go run main.go` from `/server` directory
 
-You should see similar output:
+#####b. gRPC Client Application:
+>`go run main.go` from `/client` directory
 
-`2016/10/11 16:02:47 A new Customer has been added with id: 101`
+You should see output similar to this:
 
-`2016/10/11 16:02:47 A new Customer has been added with id: 102`
+```2016/10/11 16:02:47 A new Customer has been added with id: 101
+
+2016/10/11 16:02:47 A new Customer has been added with id: 102
  
-`2016/10/11 16:02:47 Customer: id:101 name:”Shiju Varghese” email:”shiju@xyz.com” 
+2016/10/11 16:02:47 Customer: id:101 name:”Shiju Varghese” email:”shiju@xyz.com” 
    phone:”732–757–2923" addresses:<street:”1 Mission Street” city:”San Francisco” 
    state:”CA” zip:”94105" > addresses:<street:”Greenfield” city:”Kochi” state:”KL” 
-   zip:”68356" isShippingAddress:true >`
+   zip:”68356" isShippingAddress:true >
    
-`2016/10/11 16:02:47 Customer: id:102 name:”Irene Rose” email:”irene@xyz.com” 
+2016/10/11 16:02:47 Customer: id:102 name:”Irene Rose” email:”irene@xyz.com” 
    phone:”732–757–2924" addresses:<street:”1 Mission Street” city:”San Francisco” 
-   state:”CA” zip:”94105" isShippingAddress:true >`
+   state:”CA” zip:”94105" isShippingAddress:true >
+```
    
-   
- This means that your gRPC server was correctly started, and it received the
- correct RPC methods from the client application, which resulted in creating
- and displaying two customers.
+This means that your gRPC server initialized, and received the correct RPC methods from the client application, which resulted in creating and displaying two customers.
  
- For further reading, see:
+ ***
+ 
+ ###References
+ #####gRPC
+ https://www.grpc.io/
+ #####Protocol Buffers (Protobuf) Language Guide:
+ https://developers.google.com/protocol-buffers/docs/proto3
+ #####This project specifically:
  https://medium.com/@shijuvar/building-high-performance-apis-in-go-using-grpc-and-protocol-buffers-2eda5b80771b
