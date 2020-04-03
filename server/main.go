@@ -46,6 +46,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
+
 	// Creates a new gRPC server
 	s := grpc.NewServer()
 	pb.RegisterCustomerServer(s, &server{})
