@@ -20,6 +20,7 @@ func createCustomer(client pb.CustomerClient, customer *pb.CustomerRequest) {
 	if err != nil {
 		log.Fatalf("Could not create Customer: %v", err)
 	}
+
 	if resp.Success {
 		log.Printf("A new Customer has been added with id: %d", resp.Id)
 	}
@@ -32,6 +33,7 @@ func getCustomers(client pb.CustomerClient, filter *pb.CustomerFilter) {
 	if err != nil {
 		log.Fatalf("Error on get customers: %v", err)
 	}
+
 	for {
 		customer, err := stream.Recv()
 		if err == io.EOF {
@@ -57,22 +59,22 @@ func main() {
 
 	customer := &pb.CustomerRequest{
 		Id:    101,
-		Name:  "Shiju Varghese",
-		Email: "shiju@xyz.com",
-		Phone: "732-757-2923",
+		Name:  "Stevan Cunningham",
+		Email: "stevanc@xyz.com",
+		Phone: "480-432-0248",
 		Addresses: []*pb.CustomerRequest_Address{
 			&pb.CustomerRequest_Address{
-				Street:            "1 Mission Street",
-				City:              "San Francisco",
-				State:             "CA",
-				Zip:               "94105",
+				Street:            "2836 E Presidio St",
+				City:              "Mesa",
+				State:             "AZ",
+				Zip:               "85213",
 				IsShippingAddress: false,
 			},
 			&pb.CustomerRequest_Address{
-				Street:            "Greenfield",
-				City:              "Kochi",
-				State:             "KL",
-				Zip:               "68356",
+				Street:            "2400 Renwick Ave",
+				City:              "Oklahoma City",
+				State:             "OK",
+				Zip:               "73128",
 				IsShippingAddress: true,
 			},
 		},
@@ -83,14 +85,14 @@ func main() {
 
 	customer = &pb.CustomerRequest{
 		Id:    102,
-		Name:  "Irene Rose",
-		Email: "irene@xyz.com",
+		Name:  "Andrea Anne",
+		Email: "andreaannecunningham@xyz.com",
 		Phone: "732-757-2924",
 		Addresses: []*pb.CustomerRequest_Address{
 			&pb.CustomerRequest_Address{
 				Street:            "1 Mission Street",
-				City:              "San Francisco",
-				State:             "CA",
+				City:              "Lakewood",
+				State:             "CO",
 				Zip:               "94105",
 				IsShippingAddress: true,
 			},

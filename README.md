@@ -1,3 +1,5 @@
+## gRPC Customer Application
+
 ### Project Setup
 
 #### 1. Download and install protoc compiler:
@@ -18,38 +20,43 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 
 ### Running the Application
 
-#### 1. Run this protoc compiler command from the root directory:
+#### 1. Run protoc compiler from the root directory:
 `protoc -I customer/ customer/customer.proto --go_out=plugins=grpc:customer`
 
 ##### This generates `customer/customer.pb.go`, a Protobuf file with source code that allows us to:
 - Create the gRPC server
 - Make client RPC calls
 
-#### 2. Running gRPC Applications:
+#### 2. Run gRPC Applications:
 
-##### a. gRPC Server Application:
-`go run main.go` from `/server` directory
+##### a. gRPC Server:
+`go run main.go` from `/server` directory or
 
-##### b. gRPC Client Application:
-`go run main.go` from `/client` directory
+`go run server/main.go` from project root directory.
 
-You should see output similar to this:
+##### b. gRPC Client:
+`go run main.go` from `/client` directory or
 
-```2016/10/11 16:02:47 A new Customer has been added with id: 101
+`go run client/main.go` from project root directory.
+
+You should see output similar to this in the client console:
+
+```
+2016/10/11 16:02:47 A new Customer has been added with id: 101
 
 2016/10/11 16:02:47 A new Customer has been added with id: 102
  
-2016/10/11 16:02:47 Customer: id:101 name:”Shiju Varghese” email:”shiju@xyz.com” 
-   phone:”732–757–2923" addresses:<street:”1 Mission Street” city:”San Francisco” 
-   state:”CA” zip:”94105" > addresses:<street:”Greenfield” city:”Kochi” state:”KL” 
-   zip:”68356" isShippingAddress:true >
-   
-2016/10/11 16:02:47 Customer: id:102 name:”Irene Rose” email:”irene@xyz.com” 
-   phone:”732–757–2924" addresses:<street:”1 Mission Street” city:”San Francisco” 
-   state:”CA” zip:”94105" isShippingAddress:true >
+2020/04/03 17:11:21 Customer: id:101 name:"Stevan Cunningham" email:"stevanc@xyz.com" 
+  phone:"480-432-0248" addresses:<street:"2836 E Presidio St" city:"Mesa" state:"AZ" zip:"85213" > 
+  addresses:<street:"2400 Renwick Ave" city:"Oklahoma City" state:"OK" zip:"73128" 
+  isShippingAddress:true > 
+
+2020/04/03 17:11:21 Customer: id:102 name:"Andrea Anne" email:"andreaannecunningham@xyz.com" 
+  phone:"732-757-2924" addresses:<street:"1 Mission Street" city:"Lakewood" state:"CO" zip:"94105" 
+  isShippingAddress:true > 
 ```
    
-This means that your gRPC server initialized, and received the correct RPC methods from the client application, which resulted in creating and displaying two customers.
+This means that your gRPC server initialized, and received the correct RPC calls from the client app, which resulted in creating and displaying two new customers.
  
  ***
  
